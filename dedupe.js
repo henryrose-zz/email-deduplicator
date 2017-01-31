@@ -3,7 +3,7 @@
  */
 
 // This was my first attempt, it was slow!
-function iterativeDedupe(emails){
+function arrayDedupe(emails){
   var deduped = []; // place to put our deduped emails
   var err; 
   var email; 
@@ -35,6 +35,6 @@ function mapDedupe(emails){
 }
 
 module.exports = {
-  iterate : iterativeDedupe,
+  arrayDedupe : arrayDedupe,
   mapDedupe: mapDedupe
 }

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Email Deduplicator</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <div class="callout">
+            
+            <p>Do you have buckets of email addresses?  Are you feeling weighed down by DUPLICATES?  Well, you came to the right place!</p>
+            <form id="dedupe-form">
+                <label>Emails to deduplicate (comma seperated)</label>
+                <textarea id="dedupe-textarea" placeholder="henryr@chefsteps.com,arthurdent@gmail.com,marvin@hotmail.com"></textarea>
+                <div class="clearfix">
+                    <div class="float-left">
+                        <a  href="#" id="generate-random" class="button">Generate list of random emails</a>
+                        <label>How many shall I generate?
+                            <input type=text id="count" name="count" value="1000" />
+                        </label>
+                    </div>
+                    <div class="float-right">
+                        <button type="submit" href="#" id="submit" class="button">Deduplicate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="results" class="large-12 columns hide">
+        <div class="callout">
+            <h3>Your Deduped Emails</h3>
+            <textarea id="deduped-emails"></textarea>
+            <dl>
+                <dt>Emails removed by deduping:</dt>
+                <dd><span id="removed"></span></dd>
+                <dt>Time to dedupe (milliseconds)</dt>
+                <dd><span id="time-to-dedupe"></span></dd>
+            </dl>
+        </div>
+    </div>
+</div>
