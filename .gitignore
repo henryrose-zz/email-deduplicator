@@ -1,1 +1,8 @@
+#ignore installed dependencies
+node_modules
+
+#ignore vscode files
 .vscode
+
+#ignore npm stuff
+npm-debug.log
