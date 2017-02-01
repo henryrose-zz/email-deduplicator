@@ -1,4 +1,6 @@
 (function(){
+
+    // Render the results of a call to the deduping service
     function renderResults(results){
         document.getElementById('results').classList.remove('hide');
         document.getElementById('deduped-emails').value = results.deduped; 
@@ -6,10 +8,32 @@
         document.getElementById('removed').innerHTML = results.removed; 
     }
 
+    // disable various buttons in the ui, useful while longrunning async calls are in flight
+    function toggleUI(disable){
+        var dedupeTextarea = document.getElementById('dedupe-textarea');
+        var generateEmailsButton = document.getElementById('generate-random');
+        var submitButton = document.getElementById('submit');
+
+        dedupeTextarea.disabled = disable; 
+        generateEmailsButton.disabled = disable; 
+        submitButton.disabled = disable;
+    }
+
+    function disableUI(){
+        toggleUI(true);
+    }
+    
+    function enableUI(){
+        toggleUI(false);
+    }
+
+    // Handle submission of deduping form
     function handleFormSubmit(e){
         e.preventDefault(); 
         var textarea = document.getElementById('dedupe-textarea');
         var dedupingFunction = document.querySelector('input[name = "function"]:checked').value;
+
+        disableUI();
 
         var emails = textarea.value.split(',')
         var jsonEmails = JSON.stringify({
@@ -20,7 +44,6 @@
         var http = new XMLHttpRequest();
         var url = "/api/dedupe";
         http.open("POST", url, true);
-
         http.setRequestHeader("Content-Type", "application/json");
 
         http.onreadystatechange = function() {//Call a function when the state changes.
@@ -29,11 +52,13 @@
                 results = JSON.parse(http.responseText);
                 results.removed = results.emails.length - results.deduped.length;
                 renderResults(results);
+                enableUI();
             }
         }
         http.send(jsonEmails);
     }
 
+    // Handle click on generate emails button
     function handleGenerateClick(){
         var count = document.getElementById('count').value;
         var dedupeTextarea = document.getElementById('dedupe-textarea');
@@ -45,7 +70,7 @@
             alert("this is going to be really slow!");
         }
 
-        dedupeTextarea.disabled = true; 
+        disableUI();
 
         http.open("GET", url, true);
 
@@ -56,6 +81,7 @@
                 var result = JSON.parse(http.responseText);
                 dedupeTextarea.value = result.emails.join(',');
                 dedupeTextarea.disabled = false; 
+                enableUI();
             }
         }
         http.send();
@@ -63,6 +89,7 @@
 
     
     
+    // setup client side app on page load
     window.onload = function(){
         var form = document.getElementById('dedupe-form');
         form.onsubmit = handleFormSubmit; 
