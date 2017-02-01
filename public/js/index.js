@@ -9,10 +9,12 @@
     function handleFormSubmit(e){
         e.preventDefault(); 
         var textarea = document.getElementById('dedupe-textarea');
+        var dedupingFunction = document.querySelector('input[name = "function"]:checked').value;
 
         var emails = textarea.value.split(',')
         var jsonEmails = JSON.stringify({
-                emails : emails
+                emails : emails,
+                function: dedupingFunction
             });
 
         var http = new XMLHttpRequest();
