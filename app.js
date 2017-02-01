@@ -13,6 +13,8 @@ var hl = require("highlight").Highlight;
 
 var app = express()
 
+app.set('port', (process.env.PORT || 5000));
+
 // enables handlebars templates
 app.set('view engine', 'hbs');
 app.set('views', './views');
@@ -62,6 +64,6 @@ app.get('/api/generate', function (req, res) {
     });
 })
 
-app.listen(5000, function () {
-  console.log('Example app listening on port 5000!')
-})
+app.listen(app.get('port'), function() {
+  console.log('Email Deduplicator UI is running on port', app.get('port'));
+});
