@@ -1,6 +1,9 @@
 {
   "name": "emailsort",
   "version": "1.0.0",
+  "engines": {
+    "node" : "4.6.0"
+  },
   "description": "",
   "main": "app.js",
   "dependencies": {

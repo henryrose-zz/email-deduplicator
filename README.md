@@ -17,4 +17,3 @@ Specific requirements were that the resulting list of emails maintained the orig
 1. clone this repository
 1. cd to this repository
 1. run npm test 
-
