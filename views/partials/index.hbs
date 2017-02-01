@@ -49,11 +49,16 @@
         <h3>How it works</h3>
     </div>
     <div class="large-4 columns">
+        <h4>The algorithm</h4>
         <p>This email deduplicating algorithm takes an array of comma seperated strings. It then creates a new store in which to keep the set of de-duplicated emails. Finally we iterate through the input array, for each item in the array we check to see if it's in the store of deduped emails. If the email is not yet in the store of deduped emails we add it.  The result is a store containing the unique set of emails, in the same order as the original array.</p>
         
         <p>Initially I used a second array as the store for deduped emails (See arrayDedupe() below). This approach worked, but became quite slow for large inputs. I realized that the slowness was a result of the array of deduped emails getting large and lookups in that array taking longer and longer.</p>
         
         <p>I then moved the store of deduped emails to a map (a javascript Object).  Lookups in that object are very fast and the overall algorithm sped up significantly. (See mapDedupe() below)</p>
+
+        <h4>The User Interface</h4>
+        <p>This webpage is running on a nodejs server. Deduplication happens on the server via AJAX.</p>
+        <p>The server uses the express js framework with handlebars for templating. The code sample to the right is loaded from the same file that does the actual deduping</p>
     </div>
     <div class="large-8 columns">
         <pre class="callout">{{{dedupe_code}}}</pre>
@@ -61,6 +66,6 @@
 </div>
 <div class="row">
     <div class="large-12 columns">
-        <h3>How it works</h3>
+        <p>Thanks for taking the time to look at this!</p>
     </div>
 </div>
