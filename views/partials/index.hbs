@@ -9,6 +9,13 @@
             
             <p>Do you have buckets of email addresses?  Are you feeling weighed down by DUPLICATES?  Well, you came to the right place!</p>
             <p>This email deduplicator let's will clean out all those nasty duplicates and leave you with a nice clean email list, in the same order as the one you provided.</p>
+            <h3>How to use the deduplicator:</h3>
+            <ol>
+                <li>Either paste in some emails or use the random generator to populate the textarea</li>
+                <li>Choose which of the dudping algorithms you'd like to use</li>
+                <li>Press the big green button!</li>
+            </ol>
+
             <form id="dedupe-form">
                 <label>Emails to deduplicate (comma seperated)</label>
                 <textarea id="dedupe-textarea" placeholder="henryr@chefsteps.com,arthurdent@gmail.com,marvin@hotmail.com"></textarea>
@@ -59,6 +66,9 @@
         <h4>The User Interface</h4>
         <p>This webpage is running on a nodejs server. Deduplication happens on the server via AJAX.</p>
         <p>The server uses the express js framework with handlebars for templating. The code sample to the right is loaded from the same file that does the actual deduping</p>
+        
+        <h4>The Source Code</h4>
+        <p>You can view the source for this project on <a href="https://github.com/henryrose/email-deduplicator">github</a></p>
     </div>
     <div class="large-8 columns">
         <pre class="callout">{{{dedupe_code}}}</pre>

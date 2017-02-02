@@ -4,6 +4,9 @@ This repository contains a small coding exercise. The goal was to produce an alg
 
 Specific requirements were that the resulting list of emails maintained the original order and that 100,000 emails could be processed in <1s. 
 
+## See it in action
+You may view this code running here: https://blooming-thicket-85068.herokuapp.com/
+
 ## How To Run This Project
 1. ensure you have nodejs and npm installed
 1. clone this repository to your machine
