@@ -16,10 +16,21 @@
         var dedupeTextarea = document.getElementById('dedupe-textarea');
         var generateEmailsButton = document.getElementById('generate-random');
         var submitButton = document.getElementById('submit');
+        var countInput = document.getElementById('count');
+        var workingLabel = document.getElementById('generating-label');
+
 
         dedupeTextarea.disabled = disable; 
         generateEmailsButton.disabled = disable; 
         submitButton.disabled = disable;
+        countInput.disabled = disable;
+
+        if (disable){
+            workingLabel.classList.remove('hide'); 
+        } else {
+            workingLabel.classList.add('hide'); 
+        }
+        
     }
 
     function disableUI(){
@@ -69,8 +80,9 @@
         var url = "/api/generate?count=" + count;
 
 
-        if(count > 125000){
-            alert("this is going to be really slow!");
+        if(count > 200000){
+            alert("Whoa! That's gonna be be slow.  Why don't you try generating less than 200k?");
+            return false;
         }
 
         disableUI();

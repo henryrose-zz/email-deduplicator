@@ -22,7 +22,7 @@ hbs.registerPartials('./views/partials');
 
 
 app.use(express.static('public'));
-app.use(bodyParser.json({limit: '2mb'}));
+app.use(bodyParser.json({limit: '2000mb'}));
 
 
 
