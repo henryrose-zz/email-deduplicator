@@ -32,7 +32,7 @@ function generateEmail(){
         name += alphabet[getRandInt(alphabet.length)];
     }
 
-    for (var i = 0; i < getRandInt(15); i++){
+    for (var j = 0; j < getRandInt(15); j++){
         domain += alphabet[getRandInt(alphabet.length)];
     }
 

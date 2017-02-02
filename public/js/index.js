@@ -1,3 +1,6 @@
+/**
+ * Client side javascript for the email deduplicator UI
+ */
 (function(){
 
     // Render the results of a call to the deduping service
@@ -35,7 +38,7 @@
 
         disableUI();
 
-        var emails = textarea.value.split(',')
+        var emails = textarea.value.split(',');
         var jsonEmails = JSON.stringify({
                 emails : emails,
                 function: dedupingFunction
@@ -54,7 +57,7 @@
                 renderResults(results);
                 enableUI();
             }
-        }
+        };
         http.send(jsonEmails);
     }
 
@@ -74,20 +77,18 @@
 
         http.open("GET", url, true);
 
-        http.onreadystatechange = function() {//Call a function when the state changes.
+        http.onreadystatechange = function() {
             var results; 
-            if(http.readyState == 4 && http.status == 200) {
-                
+            if(http.readyState == 4 && http.status == 200) {                
                 var result = JSON.parse(http.responseText);
                 dedupeTextarea.value = result.emails.join(',');
                 dedupeTextarea.disabled = false; 
                 enableUI();
             }
-        }
+        };
         http.send();
     }
 
-    
     
     // setup client side app on page load
     window.onload = function(){

@@ -8,7 +8,7 @@
 function arrayDedupe(emails){
   var email; 
   var deduped = []; // store deduped emails
-  
+
   // iterate through list of emails
   for (var i = 0; i < emails.length; i++){
     email = emails[i]; 
@@ -20,7 +20,7 @@ function arrayDedupe(emails){
     }
   }
   return deduped;  
-};
+}
 
 // This is much faster
 function mapDedupe(emails){
@@ -40,4 +40,4 @@ function mapDedupe(emails){
 module.exports = {
   arrayDedupe : arrayDedupe,
   mapDedupe: mapDedupe
-}
+};

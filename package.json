@@ -2,7 +2,7 @@
   "name": "emailsort",
   "version": "1.0.0",
   "engines": {
-    "node" : "4.6.0"
+    "node": "4.6.0"
   },
   "description": "",
   "main": "app.js",
@@ -12,7 +12,11 @@
     "hbs": "^4.0.1",
     "highlight": "^0.2.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "jshint": "^2.9.4"
+  },
   "scripts": {
     "test": "node test.js",
     "start": "node app.js"
